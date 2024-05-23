@@ -1385,7 +1385,7 @@ err_free:
 	return err;
 }
 
-static void galaxybook_acpi_remove(struct acpi_device *device)
+static int galaxybook_acpi_remove(struct acpi_device *device)
 {
 	struct samsung_galaxybook *galaxybook = acpi_driver_data(device);
 
@@ -1404,6 +1404,7 @@ static void galaxybook_acpi_remove(struct acpi_device *device)
 		galaxybook_ptr = NULL;
 
 	kfree(galaxybook);
+	return 0;
 }
 
 static struct acpi_driver galaxybook_acpi_driver = {
