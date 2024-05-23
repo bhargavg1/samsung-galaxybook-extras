@@ -802,7 +802,7 @@ static int galaxybook_hwmon_read(struct device *dev, enum hwmon_sensor_types typ
 	return -EOPNOTSUPP;
 }
 
-static const struct hwmon_channel_info * const galaxybook_hwmon_info[] = {
+static const struct hwmon_channel_info * galaxybook_hwmon_info[] = {
 	HWMON_CHANNEL_INFO(fan, HWMON_F_INPUT),
 	NULL
 };
