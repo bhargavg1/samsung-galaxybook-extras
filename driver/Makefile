@@ -1,13 +1,9 @@
 obj-m += samsung-galaxybook.o
 SRC := $(shell pwd)
-KERNAL_SRC ?= /lib/modules/$(shell uname -r)
-BUILD_DIR ?= $(KERNAL_SRC)/build
-MODULE = samsung-galaxybook
-VERSION = 0.1
-DKMS_MODULE_DIR = /usr/src/$(MODULE)-$(VERSION)/
+KERNAL_SRC =
 
 make:
-	$(MAKE) -C $(BUILD_DIR) M=$(SRC) modules
+	$(MAKE) -C /lib/modules/$(shell uname -r)/build M=$(SRC) modules
 
 modules_install:
 	$(MAKE) -C $(KERNEL_SRC) M=$(SRC) modules_install
