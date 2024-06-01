@@ -1,3 +1,0 @@
-obj-m += samsung-galaxybook.o
-samsung-galaxybook-y = samsung-galaxybook.mod.o
-ccflags-y := -g -DDEBUG
