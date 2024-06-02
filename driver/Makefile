@@ -10,11 +10,11 @@ make:
 modules_install:
 	$(MAKE) -C $(KERNEL_SRC) M=$(SRC) modules_install
 
-dkms_install: make
+dkms_install: make dkms_uninstall
 	sudo mkdir -p $(DKMS_MODULE_DIR)
 	sudo cp dkms.conf samsung-galaxybook.c Makefile $(DKMS_MODULE_DIR)
 	sudo dkms add -m $(MODULE_NAME) -v $(MODULE_VERSION)
-	sudo dkms install -m $(MODULE_NAME) -v $(MODULE_VERSION)
+	sudo dkms autoinstall
 
 dkms_uninstall:
 	sudo dkms remove -m $(MODULE_NAME) -v $(MODULE_VERSION) --all || true
